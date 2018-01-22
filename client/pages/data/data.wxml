@@ -1,0 +1,6 @@
+<view>
+  <button bindtap="getDBSDKInstance">获取数据库SDK连接实例</button>
+</view>
+<view>
+  <button bindtap="DBSDKInsert">DBSDK_Insert</button>
+</view>
