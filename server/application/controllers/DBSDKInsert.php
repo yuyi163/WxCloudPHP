@@ -12,8 +12,8 @@ class DBSDKInsert extends CI_Controller {
     public function index()
     {
         $resultCol = DB::insert('yyTest1', [
-            'id' => '1',
-            'name' => 'yuyi'
+            'id' => '2',
+            'name' => 'yuyi2'
         ]);
         $this->json([
             'code' => 0,

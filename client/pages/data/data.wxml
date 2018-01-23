@@ -1,6 +1,18 @@
-<view>
-  <button bindtap="getDBSDKInstance">获取数据库SDK连接实例</button>
-</view>
+
 <view>
   <button bindtap="DBSDKInsert">DBSDK_Insert</button>
+</view>
+
+<view>
+  <button bindtap="DBSDKSelect">DBSDK_Select</button>
+</view>
+<view wx:for="{{resultRows1}}" wx:key="idx" wx:for-index="idx" wx:for-item="itemName">
+  {{idx}}: {{itemName.id}}: {{itemName.name}}
+</view>
+
+<view>
+  <button bindtap="DBSDKRow">DBSDK_Row</button>
+</view>
+<view wx:if="{{resultRows2Id}}">
+  id:{{resultRows2Id}}  name:{{resultRows2Name}}
 </view>
