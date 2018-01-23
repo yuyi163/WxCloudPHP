@@ -5,7 +5,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    
+    resultRows1: [],
+    resultRows2Id: null,
+    resultRows2Name: null,
   },
 
   /**
@@ -64,18 +66,6 @@ Page({
     
   },
 
-  getDBSDKInstance:function(){
-    wx.request({
-      url: "https://9witkkfx.qcloud.la/weapp/DBSDK",
-      header: {
-        'content-type': 'application/json' // 默认值
-      },
-      success: function (res) {
-        console.log(res.data)
-      }
-    })
-  },
-
   DBSDKInsert:function(){
     wx.request({
       url: "https://9witkkfx.qcloud.la/weapp/DBSDKInsert",
@@ -84,8 +74,37 @@ Page({
       },
       success: function (res) {
         console.log(res.data)
+        that.setData({resultRows1: res.data.$resultRows})
       }
     })
-  }
+  },
+
+  DBSDKSelect: function () {
+    var that = this
+    wx.request({
+      url: "https://9witkkfx.qcloud.la/weapp/DBSDKSelect",
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success: function (res) {
+        console.log(res.data)
+        that.setData({ resultRows1: res.data.data})
+      }
+    })
+  },
+
+  DBSDKRow: function () {
+    var that = this
+    wx.request({
+      url: "https://9witkkfx.qcloud.la/weapp/DBSDKRow",
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success: function (res) {
+        console.log(res.data.data)
+        that.setData({ resultRows2Id: res.data.data.id, resultRows2Name: res.data.data.name})
+      }
+    })
+  },
     
 })

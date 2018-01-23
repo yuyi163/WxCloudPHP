@@ -15,7 +15,7 @@ const formatNumber = n => {
 }
 
 
-// 显示繁忙提示
+// 显示繁忙提示。相当于var showBusy = funciton(text){return wx.showToast...}
 var showBusy = text => wx.showToast({
     title: text,
     icon: 'loading',
